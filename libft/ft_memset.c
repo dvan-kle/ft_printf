@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 14:29:25 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:06:27 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/22 23:59:55 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	*ft_memset(void	*b, int c, size_t n)
 {

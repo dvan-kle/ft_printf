@@ -6,15 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 15:09:55 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/18 22:22:35 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/21 16:58:07 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	if (!((c > 64 && c < 91) || (c > 96 && c < 123)))
-	{
-		return (0);
-	}
-	return (1);
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }

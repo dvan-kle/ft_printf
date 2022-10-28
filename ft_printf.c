@@ -6,13 +6,19 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 13:21:39 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/27 14:49:35 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:45:14 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "libftprintf.h"
 #include "ft_printf.h"
+
+struct s_v
+{
+	int		length;
+	int		tmp;
+	va_list	list;
+}	s;
 
 int	find_format(char c, va_list list)
 {
@@ -44,29 +50,29 @@ int	find_format(char c, va_list list)
 
 int	ft_printf(const char *str, ...)
 {
-	int		length;
-	int		tmp;
 	int		i;
 	va_list	list;
 
 	va_start(list, str);
-	length = 0;
-	i = -1;
-	while (str[++i] != '\0')
+	s.length = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
-			tmp = find_format(str[++i], list);
-			if (tmp == -1)
+			s.tmp = find_format(str[++i], list);
+			if (s.tmp == -1)
 				return (-1);
-			length += tmp;
+			s.length += s.tmp;
 		}
 		else
 		{
 			if (ft_putchar(str[i]) == -1)
 				return (-1);
-			length++;
+			s.length++;
 		}
+		if (str[i] != '\0')
+			i++;
 	}
-	return (va_end(list), length);
+	return (va_end(list), s.length);
 }

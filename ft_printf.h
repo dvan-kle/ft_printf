@@ -6,12 +6,14 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 15:50:45 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/27 13:10:48 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:38:52 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+# include "libft/libft.h"
 
 int	ft_putchar(int c);
 int	ft_putstr(char *str);

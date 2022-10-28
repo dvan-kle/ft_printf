@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:23:28 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:06:40 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/22 23:50:17 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

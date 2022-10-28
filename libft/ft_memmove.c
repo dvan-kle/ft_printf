@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:36:41 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:08:25 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/22 23:53:23 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *sc, size_t len)
 {
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dst, const void *sc, size_t len)
 	j = len;
 	dest = (unsigned char *) dst;
 	src = (const unsigned char *) sc;
-	if (dst == 0 && sc == 0)
+	if (!dst && !sc)
 		return (0);
 	if (dst > sc)
 	{

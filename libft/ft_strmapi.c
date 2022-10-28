@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 14:56:42 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:05:48 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:19:23 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char))
 {
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *str, char (*f)(unsigned int, char))
 	unsigned int	i;
 	unsigned int	len;
 
+	if (!str)
+		return (NULL);
 	len = ft_strlen(str);
 	ptr = (char *)malloc(len + 1);
 	if (!ptr)

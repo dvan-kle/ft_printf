@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 13:57:44 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:06:14 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/22 22:49:50 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *src)
 {
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *src)
 	char	*dest;
 
 	dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
-	if (dest == NULL)
+	if (!dest)
 		return (NULL);
 	i = 0;
 	while (src[i] != '\0')

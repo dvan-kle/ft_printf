@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 14:45:05 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:05:47 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/18 22:25:21 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

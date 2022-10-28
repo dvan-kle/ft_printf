@@ -6,11 +6,10 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 14:35:30 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/27 14:20:27 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:45:16 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
 #include "ft_printf.h"
 
 int	ft_putchar(int c)

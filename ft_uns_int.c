@@ -6,11 +6,10 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 16:20:34 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/27 12:37:10 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:45:04 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
 #include "ft_printf.h"
 
 unsigned int	ft_len(unsigned int n)

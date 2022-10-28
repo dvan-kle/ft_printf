@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 13:00:22 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:03:37 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 14:46:43 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	*ft_bzero(void	*b, size_t n)
 {

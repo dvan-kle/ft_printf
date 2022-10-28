@@ -6,11 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 14:51:57 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:05:48 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/18 22:25:58 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 static int	ft_find(char *ptr, const char *find, size_t i, size_t j);
 

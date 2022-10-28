@@ -6,11 +6,10 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 18:30:24 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/27 12:46:01 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:44:09 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
 #include "ft_printf.h"
 
 static int	ft_puthnbr(unsigned long nb)

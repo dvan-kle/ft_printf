@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr_fd.c                                     :+:    :+:            */
+/*   ft_lstiter.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/12 12:37:51 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/23 00:00:01 by dvan-kle      ########   odam.nl         */
+/*   Created: 2022/10/18 20:41:56 by dvan-kle      #+#    #+#                 */
+/*   Updated: 2022/10/19 14:39:43 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *str, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!str)
+	if (!f)
 		return ;
-	while (*str)
+	while (lst)
 	{
-		write (fd, str, 1);
-		str++;
+		f(lst->content);
+		lst = lst->next;
 	}
 }

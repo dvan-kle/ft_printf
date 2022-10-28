@@ -6,15 +6,11 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 15:09:55 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/18 22:22:38 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/21 16:58:39 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (!(c >= 0 && c <= 127))
-	{
-		return (0);
-	}
-	return (1);
+	return (c >= 0 && c <= 127);
 }

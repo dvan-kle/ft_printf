@@ -6,13 +6,13 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:00:44 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/26 16:06:13 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:15:33 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	word_count(const char *str, char c)
+static int	word_count(const char *str, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	word_count(const char *str, char c)
 	return (count);
 }
 
-int	find_len(char const *str, int i, char c)
+static int	find_len(char const *str, int i, char c)
 {
 	int	len;
 
@@ -44,7 +44,7 @@ int	find_len(char const *str, int i, char c)
 	return (len);
 }
 
-void	*ft_free(char **ptr)
+static void	*ft_free(char **ptr)
 {
 	int	i;
 
@@ -64,6 +64,8 @@ char	**ft_split(char const *str, char c)
 	int		i;
 	int		j;
 
+	if (!str)
+		return (NULL);
 	ptr = (char **)malloc((word_count(str, c) + 1) * sizeof(char *));
 	if (!ptr)
 		return (NULL);
@@ -76,13 +78,11 @@ char	**ft_split(char const *str, char c)
 		if (str[i] != c && str[i] != '\0')
 		{
 			ptr[j] = ft_substr(str, i, find_len(str, i, c));
-			if (!ptr[j])
+			if (!ptr[j++])
 				return (ft_free(ptr));
 			i += find_len(str, i, c);
-			j++;
 		}
 		i++;
 	}
-	ptr[word_count(str, c)] = 0;
-	return (ptr);
+	return (ptr[word_count(str, c)] = 0, ptr);
 }

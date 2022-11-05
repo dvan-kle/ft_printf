@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 16:20:34 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/28 15:45:04 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/11/04 19:20:32 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ char	*ft_uitoa(unsigned int n)
 	{
 		while (n != 0)
 		{
-			ptr[len--] = (n % 10) + 48;
+			ptr[len] = (n % 10) + '0';
 			n = n / 10;
+			len--;
 		}
 	}
 	return (ptr);
@@ -57,7 +58,7 @@ int	ft_uns_int(int nb)
 
 	ptr = ft_uitoa(nb);
 	if (!ptr)
-		return (-1);
+		return (0);
 	i = ft_putstr(ptr);
 	free(ptr);
 	return (i);

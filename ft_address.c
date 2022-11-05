@@ -6,33 +6,30 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 18:30:24 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/28 15:44:09 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/11/05 13:26:45 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_puthnbr(unsigned long nb)
+static void	puthexa(unsigned long nb)
 {
 	if (nb > 15)
 	{
-		ft_puthnbr(nb / 16);
-		ft_puthnbr(nb % 16);
+		puthexa(nb / 16);
+		puthexa(nb % 16);
 	}
 	else
 	{
 		if (nb < 10)
 		{
-			if (ft_putchar(nb + '0') == -1)
-				return (-1);
-		}	
+			ft_putchar(nb + '0');
+		}
 		else
 		{
-			if (ft_putchar(nb - 10 + 'a') == -1)
-				return (-1);
+			ft_putchar(nb - 10 + 'a');
 		}
 	}
-	return (1);
 }
 
 static int	h_len(unsigned long nb)
@@ -50,18 +47,14 @@ static int	h_len(unsigned long nb)
 	return (len);
 }
 
-int	ft_address(void *p)
+int	ft_address(void	*p)
 {
 	unsigned long	nb;
 
-	if (!p)
-		return (ft_putstr("0x0\0"));
 	nb = (unsigned long)p;
-	if (nb == 0)
-		return (ft_putchar('0'));
-	if (ft_putstr("0x") == -1)
-		return (-1);
-	if (ft_puthnbr(nb) == -1)
-		return (-1);
+	ft_putstr("0x");
+	if (!p)
+		return (ft_putchar('0') + 2);
+	puthexa(nb);
 	return (h_len(nb) + 2);
 }

@@ -6,7 +6,7 @@
 #    By: dvan-kle <dvan-kle@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 14:40:46 by dvan-kle      #+#    #+#                  #
-#    Updated: 2022/10/28 18:20:19 by dvan-kle      ########   odam.nl          #
+#    Updated: 2022/11/04 19:19:51 by dvan-kle      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,10 @@ CFLAGS=-Wall -Werror -Wextra
 SRC=	ft_printf.c \
 		ft_address.c \
 		ft_funcs.c \
-		ft_hexa_low.c \
-		ft_hexa_up.c \
+		ft_hexa.c \
 		ft_uns_int.c 
 
-OBJ=	*.o
+OBJ=	$(SRC:.c=.o)
 
 all: $(NAME)
 

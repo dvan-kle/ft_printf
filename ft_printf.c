@@ -6,19 +6,12 @@
 /*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 13:21:39 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/10/28 15:45:14 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2022/11/04 19:43:41 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "ft_printf.h"
-
-struct s_v
-{
-	int		length;
-	int		tmp;
-	va_list	list;
-}	s;
 
 int	find_format(char c, va_list list)
 {
@@ -36,9 +29,9 @@ int	find_format(char c, va_list list)
 	else if (c == 'u')
 		length += ft_uns_int(va_arg(list, unsigned int));
 	else if (c == 'x')
-		length += ft_hexa_low(va_arg(list, unsigned int));
+		length += ft_hexa(va_arg(list, unsigned int), c);
 	else if (c == 'X')
-		length += ft_hexa_up(va_arg(list, int));
+		length += ft_hexa(va_arg(list, unsigned int), c);
 	else if (c == '%')
 		length += ft_putchar('%');
 	else if (c == '\0')
@@ -51,28 +44,26 @@ int	find_format(char c, va_list list)
 int	ft_printf(const char *str, ...)
 {
 	int		i;
+	int		length;
 	va_list	list;
 
 	va_start(list, str);
-	s.length = 0;
+	length = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
-			s.tmp = find_format(str[++i], list);
-			if (s.tmp == -1)
-				return (-1);
-			s.length += s.tmp;
+			length += find_format(str[i + 1], list);
+			i++;
 		}
 		else
 		{
-			if (ft_putchar(str[i]) == -1)
-				return (-1);
-			s.length++;
+			ft_putchar(str[i]);
+			length++;
 		}
 		if (str[i] != '\0')
 			i++;
 	}
-	return (va_end(list), s.length);
+	return (va_end(list), length);
 }

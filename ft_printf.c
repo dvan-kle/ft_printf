@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_printf.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/26 13:21:39 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/11/04 19:43:41 by dvan-kle      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danielvankleef <danielvankleef@student.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/26 13:21:39 by dvan-kle          #+#    #+#             */
+/*   Updated: 2022/11/10 13:56:19 by danielvankl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	find_format(char c, va_list list)
 	else if (c == 's')
 		length += ft_putstr(va_arg(list, char *));
 	else if (c == 'p')
-		length += ft_address(va_arg(list, void *));
+		length += ft_hexa(va_arg(list, unsigned long), c);
 	else if (c == 'd' || c == 'i')
-		length += ft_int(va_arg(list, int));
+		length += ft_convert(va_arg(list, int));
 	else if (c == 'u')
-		length += ft_uns_int(va_arg(list, unsigned int));
+		length += ft_convert(va_arg(list, unsigned int));
 	else if (c == 'x')
 		length += ft_hexa(va_arg(list, unsigned int), c);
 	else if (c == 'X')
@@ -37,7 +37,7 @@ int	find_format(char c, va_list list)
 	else if (c == '\0')
 		return (0);
 	else
-		length++;
+		length += ft_putchar(c);
 	return (length);
 }
 
@@ -58,12 +58,21 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-		{
-			ft_putchar(str[i]);
-			length++;
-		}
+			length += ft_putchar(str[i]);
 		if (str[i] != '\0')
 			i++;
 	}
 	return (va_end(list), length);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

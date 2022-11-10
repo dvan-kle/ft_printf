@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_printf.h                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/26 15:50:45 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/11/04 19:44:29 by dvan-kle      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danielvankleef <danielvankleef@student.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/26 15:50:45 by dvan-kle          #+#    #+#             */
+/*   Updated: 2022/11/10 13:54:15 by danielvankl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
 
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_address(void *p);
-int	ft_int(int nb);
-int	ft_uns_int(int nb);
-int	ft_hexa(unsigned int nb, char format);
-int	ft_printf(const char *str, ...);
+int     ft_putchar(int c);
+int     ft_putstr(char *str);
+int     ft_convert(ssize_t nb);
+int     ft_hexa(size_t nb, char format);
+size_t  ft_strlen(const char *str);
+int     ft_printf(const char *str, ...);
 
 #endif

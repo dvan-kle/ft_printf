@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: dvan-kle <dvan-kle@student.42.fr>            +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/10/26 14:40:46 by dvan-kle      #+#    #+#                  #
-#    Updated: 2022/11/04 19:19:51 by dvan-kle      ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: danielvankleef <danielvankleef@student.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/26 14:40:46 by dvan-kle          #+#    #+#              #
+#    Updated: 2022/11/10 13:53:26 by danielvankl      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,18 +17,14 @@ NAME=libftprintf.a
 CFLAGS=-Wall -Werror -Wextra
 
 SRC=	ft_printf.c \
-		ft_address.c \
-		ft_funcs.c \
-		ft_hexa.c \
-		ft_uns_int.c 
+		ft_printf_utils.c \
+		ft_hexa.c 
 
 OBJ=	$(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C libft
-	cp libft/libft.a $(NAME)
 	ar -crs $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
@@ -36,11 +32,9 @@ $(OBJ): $(SRC)
 
 clean:
 	rm -f $(OBJ)
-	rm -f libft/*.o
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f libft/libft.a
 
 re: fclean all	
 

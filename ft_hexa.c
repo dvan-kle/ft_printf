@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_hexa.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: dvan-kle <dvan-kle@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/26 16:49:02 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2022/11/04 19:21:16 by dvan-kle      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danielvankleef <danielvankleef@student.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/26 16:49:02 by dvan-kle          #+#    #+#             */
+/*   Updated: 2022/11/09 22:32:34 by danielvankl      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	puthexa(unsigned int nb, char format)
+static void	puthexa(size_t nb, char format)
 {
 	if (nb > 15)
 	{
@@ -29,13 +29,13 @@ static void	puthexa(unsigned int nb, char format)
 		{
 			if (format == 'X')
 				ft_putchar(nb - 10 + 'A');
-			if (format == 'x')
+			if (format == 'x' || format == 'p')
 				ft_putchar(nb - 10 + 'a');
 		}
 	}
 }
 
-static int	h_len(unsigned int nb)
+static int	h_len(size_t nb)
 {
 	int	len;
 
@@ -50,10 +50,21 @@ static int	h_len(unsigned int nb)
 	return (len);
 }
 
-int	ft_hexa(unsigned int nb, char format)
+int	ft_hexa(size_t nb, char format)
 {
-	if (nb == 0)
-		return (ft_putchar('0'));
-	puthexa(nb, format);
-	return (h_len(nb));
+	if ((format == 'X') || (format == 'x'))
+	{
+		if (nb == 0)
+			return (ft_putchar('0'));
+		puthexa(nb, format);
+		return (h_len(nb));
+	}
+	else
+	{
+		ft_putstr("0x");
+		if (nb == 0)
+			return (ft_putchar('0') + 2);
+		puthexa(nb, format);
+		return (h_len(nb) + 2);
+	}
 }
